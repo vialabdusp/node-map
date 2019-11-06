@@ -94,66 +94,10 @@ Add to `app.js`, below `var app = express();`:
 ```js
 const Sequelize = require('sequelize');
 
-const sequelize = newconst Sequelize = require('sequelize');
-
-module.exports = (sequelize) => { 
-    return sequelize.define('neigh', {
-        oid: {
-            type: Sequelize.INTEGER,
-            primaryKey: true
-        },
-        name : {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        length: {
-            type: Sequelize.FLOAT
-        },
-        area: {
-            type: Sequelize.FLOAT
-        },
-        geom: {
-            type: Sequelize.GEOMETRY('POLYGON', 4326)
-        }
-    }, {
-        // options
-    })
-}_node', 'map_app_user', 'map_app_pass', {
+const sequelize = new Sequelize('map_app_node', 'map_app_user', 'map_app_pass', {
   host: 'localhost',
-  dialect: 'postgres'const Sequelize = require('sequelize');
-
-module.exports = (sequelize) => { 
-    return sequelize.define('neigh', {
-        oid: {
-            type: Sequelize.INTEGER,
-            primaryKey: true
-        },
-        name : {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        length: {
-            type: Sequelize.FLOAT
-        },
-        area: {
-            type: Sequelize.FLOAT
-        },
-        geom: {
-            type: Sequelize.GEOMETRY('POLYGON', 4326)
-        }
-    }, {
-        // options
-    })
-}
+  dialect: 'postgres'
 });
-
-sequelize.authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
 ```
 
 ## Build Model
