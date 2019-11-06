@@ -151,5 +151,10 @@ sequelize.authenticate()
 ## Load Data
 
 ```sh
-ogr2ogr -f "PostgreSQL" PG:"host=localhost user=map_app_user dbname=map_app_node password=map_app_pass" -sql "SELECT OBJECTID AS oid, NBHD AS name, SHAPE_Leng AS length, SHAPE_Area AS area FROM Neighborhoods" -t_srs EPSG:4326 ./data/Neighborhoods.shp -nln neighs
+ogr2ogr \
+    -f "PostgreSQL" PG:"host=localhost user=map_app_user dbname=map_app_node password=map_app_pass" \
+    -sql "SELECT OBJECTID AS oid, NBHD AS name, SHAPE_Leng AS length, SHAPE_Area AS area FROM Neighborhoods" \
+    t_srs EPSG:4326 \
+    ./data/Neighborhoods.shp \
+    -nln neighs
 ```
