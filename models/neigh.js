@@ -20,6 +20,6 @@ module.exports = (sequelize) => {
             type: Sequelize.GEOMETRY('POLYGON', 4326)
         }
     }, {
-        // options
+        timestamps: false
     })
 }

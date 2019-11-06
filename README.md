@@ -127,7 +127,7 @@ module.exports = (sequelize) => {
             type: Sequelize.GEOMETRY('POLYGON', 4326)
         }
     }, {
-        // options
+        timestamps: false
     })
 }
 ```
@@ -141,9 +141,15 @@ const Neigh = NeighModel(sequelize)
 sequelize.authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
-    sequelize.sync();
+    sequelize.sync({alter: true});
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+```
+
+## Load Data
+
+```sh
+ogr2ogr -f "PostgreSQL" PG:"host=localhost user=map_app_user dbname=map_app_node password=map_app_pass" -sql "SELECT OBJECTID AS oid, NBHD AS name, SHAPE_Leng AS length, SHAPE_Area AS area FROM Neighborhoods" -t_srs EPSG:4326 ./data/Neighborhoods.shp -nln neighs
 ```
